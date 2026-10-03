@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MA Mobile Zone | Online Mobile Shop</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f6f8fc;color:#172033}
+header{background:#0f172a;color:#fff;padding:14px 5%;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:10}
+.logo{font-weight:900;font-size:23px;white-space:nowrap}.search{flex:1;max-width:600px}.search input{width:100%;padding:13px 18px;border:0;border-radius:25px;font-size:15px}
+.header-btn{background:#2563eb;color:white;text-decoration:none;padding:11px 15px;border-radius:9px;font-weight:700}
+.hero{padding:55px 5%;background:linear-gradient(120deg,#dbeafe,#fff);display:flex;justify-content:space-between;align-items:center;gap:30px}
+.hero h1{font-size:42px;margin:0 0 10px}.hero p{font-size:18px;line-height:1.7}.hero-art{font-size:130px}
+.container{max-width:1200px;margin:auto;padding:35px 5%}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.categories{display:flex;gap:10px;overflow:auto;padding-bottom:8px}.cat{border:1px solid #dbe1ea;background:#fff;padding:11px 18px;border-radius:22px;cursor:pointer;white-space:nowrap}.cat.active,.cat:hover{background:#2563eb;color:#fff}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.product{background:#fff;border-radius:17px;overflow:hidden;box-shadow:0 5px 22px #0f172a10;position:relative}
+.product-img{height:210px;background:#eef2f7;display:flex;align-items:center;justify-content:center;font-size:95px}
+.badge{position:absolute;top:12px;left:12px;background:#ef4444;color:#fff;padding:6px 9px;border-radius:7px;font-size:12px;font-weight:700}
+.product-body{padding:17px}.product h3{margin:0 0 8px}.old{text-decoration:line-through;color:#8a94a6;margin-right:8px}.price{font-size:21px;font-weight:800;color:#155eef}.actions{display:flex;gap:8px;margin-top:14px}.btn{border:0;padding:11px;border-radius:9px;font-weight:700;cursor:pointer;flex:1}.buy{background:#2563eb;color:#fff}.cart{background:#e8efff;color:#155eef}
+.offer{background:#111827;color:#fff;border-radius:18px;padding:28px;margin-top:20px}.offer h2{margin-top:0}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.info-card{background:#fff;padding:22px;border-radius:15px;box-shadow:0 4px 18px #0f172a0d}
+.cartbar{position:fixed;right:18px;bottom:18px;background:#2563eb;color:white;padding:14px 18px;border-radius:30px;font-weight:800;box-shadow:0 8px 25px #2563eb55;z-index:20}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;align-items:center;justify-content:center;padding:20px}.modal-box{background:#fff;border-radius:16px;padding:25px;max-width:480px;width:100%}.modal input,.modal textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #d5d9e2;border-radius:8px}
+footer{background:#0b1220;color:#cbd5e1;text-align:center;padding:30px;margin-top:35px}
+@media(max-width:700px){header{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero h1{font-size:31px}.hero-art{font-size:80px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">📱 MA MOBILE ZONE</div>
+<div class="search"><input id="search" oninput="render()" placeholder="🔎 মোবাইল খুঁজুন..."></div>
+<a class="header-btn" href="tel:+8801717570618">📞 Call</a>
+</header>
+
+<section class="hero">
+<div><h1>স্মার্টফোন কিনুন নিশ্চিন্তে</h1><p>MA Mobile Zone — নতুন মোবাইল, দারুণ অফার ও সহজ অর্ডার সুবিধা।</p>
+<a class="header-btn" href="#products">🛒 Shop Now</a></div><div class="hero-art">📱</div>
+</section>
+
+<div class="container">
+<div class="section-title"><h2>ক্যাটাগরি</h2></div>
+<div class="categories" id="categories"></div>
+
+<section id="products">
+<div class="section-title"><h2>🔥 জনপ্রিয় মোবাইল</h2><span id="count"></span></div>
+<div class="products" id="productList"></div>
+</section>
+
+<div class="offer">
+<h2>🔥 আজকের স্পেশাল অফার</h2>
+<p>নির্বাচিত মোবাইলে বিশেষ মূল্য। স্টক ও দাম জানতে সরাসরি যোগাযোগ করুন।</p>
+<a class="header-btn" href="https://wa.me/8801717570618">WhatsApp-এ জানতে চান</a>
+</div>
+</div>
+
+<div class="container">
+<h2>📍 আমাদের শোরুম</h2>
+<div class="info">
+<div class="info-card"><h3>🏢 প্রধান শোরুম</h3><p>মেইন অফিস<br>বোদা স্বর্ণহার সিনেমা হল<br>বোদা, পঞ্চগড়</p></div>
+<div class="info-card"><h3>🏪 দ্বিতীয় শোরুম</h3><p>ডাচ-বাংলা বুথের সামনে<br>আটোয়ারী, পঞ্চগড়</p></div>
+<div class="info-card"><h3>📞 যোগাযোগ</h3><p>+8801717570618</p><a class="header-btn" href="https://wa.me/8801717570618">WhatsApp</a></div>
+</div>
+</div>
+
+<div class="cartbar" onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeCart()">
+<div class="modal-box">
+<h2>🛒 অর্ডার</h2><div id="cartItems"></div>
+<input id="customer" placeholder="আপনার নাম" required>
+<input id="mobile" placeholder="মোবাইল নম্বর" required>
+<textarea id="address" placeholder="ঠিকানা"></textarea>
+<button class="btn buy" onclick="checkout()">WhatsApp-এ অর্ডার পাঠান</button>
+<button class="btn" onclick="closeCart()">বন্ধ করুন</button>
+</div></div>
+
+<footer>© 2026 MA Mobile Zone | বোদা & আটোয়ারী, পঞ্চগড়</footer>
+
+<script>
+const products=[
+{name:"iPhone 16",brand:"iPhone",price:99999,old:109999,icon:"🍎",offer:"অফার"},
+{name:"Samsung Galaxy A56",brand:"Samsung",price:46999,old:49999,icon:"📱",offer:"অফার"},
+{name:"Redmi Note Series",brand:"Xiaomi",price:22999,old:24999,icon:"🔴",offer:"অফার"},
+{name:"Vivo V Series",brand:"Vivo",price:32999,old:34999,icon:"✨",offer:"অফার"},
+{name:"OPPO Reno Series",brand:"OPPO",price:37999,old:39999,icon:"⚡",offer:"অফার"},
+{name:"Realme Number Series",brand:"Realme",price:26999,old:28999,icon:"🚀",offer:"অফার"},
+{name:"Infinix Note Series",brand:"Infinix",price:18999,old:20999,icon:"🔥",offer:"অফার"},
+{name:"Tecno Camon Series",brand:"Tecno",price:19999,old:21999,icon:"📸",offer:"অফার"}
+];
+let active="সব",cart=[];
+const money=n=>"৳"+n.toLocaleString("en-BD");
+function categories(){let bs=["সব",...new Set(products.map(p=>p.brand))];document.getElementById("categories").innerHTML=bs.map(x=>`<button class="cat ${x===active?'active':''}" onclick="active='${x}';categories();render()">${x}</button>`).join("")}
+function render(){let q=document.getElementById("search").value.toLowerCase();let a=products.filter(p=>(active==="সব"||p.brand===active)&&p.name.toLowerCase().includes(q));document.getElementById("count").textContent=a.length+"টি পণ্য";document.getElementById("productList").innerHTML=a.map((p,i)=>`<div class="product"><span class="badge">${p.offer}</span><div class="product-img">${p.icon}</div><div class="product-body"><h3>${p.name}</h3><p>${p.brand}</p><span class="old">${money(p.old)}</span><span class="price">${money(p.price)}</span><div class="actions"><button class="btn cart" onclick="add(${products.indexOf(p)})">🛒 Cart</button><button class="btn buy" onclick="buy(${products.indexOf(p)})">Buy Now</button></div></div></div>`).join("")}
+function add(i){cart.push(products[i]);updateCart();alert("কার্টে যোগ হয়েছে!")}
+function updateCart(){document.getElementById("cartCount").textContent=cart.length}
+function buy(i){cart=[products[i]];updateCart();openCart()}
+function openCart(){document.getElementById("cartItems").innerHTML=cart.length?cart.map((p,i)=>`<p><b>${p.name}</b> — ${money(p.price)} <button onclick="cart.splice(${i},1);updateCart();openCart()">✕</button></p>`).join(""):"<p>কার্ট খালি।</p>";document.getElementById("modal").style.display="flex"}
+function closeCart(){document.getElementById("modal").style.display="none"}
+function checkout(){if(!cart.length)return alert("আগে একটি পণ্য নির্বাচন করুন।");let n=document.getElementById("customer").value,p=document.getElementById("mobile").value,a=document.getElementById("address").value;if(!n||!p)return alert("নাম ও মোবাইল নম্বর দিন।");let items=cart.map(x=>x.name+" - "+money(x.price)).join(", ");let msg=`MA Mobile Zone অর্ডার%0Aনাম: ${encodeURIComponent(n)}%0Aফোন: ${encodeURIComponent(p)}%0Aঠিকানা: ${encodeURIComponent(a)}%0Aপণ্য: ${encodeURIComponent(items)}`;window.open("https://wa.me/8801717570618?text="+msg,"_blank")}
+categories();render();
+</script>
+</body></html>
